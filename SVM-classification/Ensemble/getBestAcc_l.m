@@ -7,7 +7,7 @@ for iter=1:246
     slable=find(x~=0);
     train_t=train(:,slable);
     test_t=test(:,slable);
-    model = svmtrain(train_label, train_t, '-s 0 -t 0 -b 1');   %-t 2 RBF
+    model = svmtrain(train_label, train_t, '-s 0 -t 0 -b 1');   %linear-kernal
     [predictlabel, acc_t,~]= svmpredict(test_label, test_t, model, '-b 1');
     [~,dev_train,~]=svmpredict(train_label, train_t, model, '-b 1');
     dev_all(iter,1)=1-dev_train(1);  %%%training bias
